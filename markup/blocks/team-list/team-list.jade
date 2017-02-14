@@ -1,0 +1,31 @@
+include ../social/social
+include ../title/title
+
+mixin team-list(data)
+
+    -data = data || {};
+
+    +b('ul').team-list.js-animation-wrap
+        each item in data
+            +e('li').__item.__part
+                +e.__person
+                    +e('img')(
+                        src= item.photo
+                        height= 250
+                        width= 370
+                    ).__photo
+                    +e.__info
+                        +e('h3').__name!= item.name
+                        +social({
+                            links: [{
+                                href: '#',
+                                text: 'facebook',
+                                iconFontName: ['icon-facebook', 'social__icon_red','social__icon_small']
+                            },
+                            {
+                                href: '#',
+                                text: 'twitter',
+                                iconFontName: ['icon-twitter', 'social__icon_red', 'social__icon_small']
+                            }]
+                        }).__social
+                        +e.__position!= item.position

@@ -1,0 +1,72 @@
+//media
+$media-phone-small: 'screen and (max-width: 319px)';
+$media-phone: 'screen and (max-width: 479px)';
+$media-tablet-smaller: 'screen and (max-width: 630px)';
+$media-tablet-small: 'screen and (max-width: 767px)';
+$media-tablet: 'screen and (max-width: 999px)';
+$media-desktop-small: 'screen and (max-width: 1199px)';
+$media-desktop: 'screen and (max-width: 1360px)';
+
+
+$gutter-width: 30px;
+$half-gutter-width: $gutter-width / 2;
+$max-width: 1200px;
+$max-width-desktop-small: 900px;
+$max-width-tablet: 730px;
+$max-width-tablet-small: 100%;
+
+$columns: 12;
+$gutter-compensation: -1 * $half-gutter-width;
+
+//for make-grid
+$breakpoints: (
+    desktop: $media-desktop,
+    desktop-small: $media-desktop-small,
+    tablet: $media-tablet,
+    tablet-small: $media-tablet-small,
+    tablet-smaller: $media-tablet-smaller,
+    phone:$media-phone
+);
+
+//colors
+$white: #fff;
+
+$gray: #f7f7f7;
+$gray-dark: #dadada;
+$gray-darker: #ccc;
+$gray-darkest: #919191;
+$black-magic: #323232;
+$red: #ff0000;
+$red-dark: #cb2e2e;
+
+$duration-default: .3s;
+
+$transition-default: .3s ease-out;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

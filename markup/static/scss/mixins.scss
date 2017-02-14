@@ -1,0 +1,171 @@
+@import "vars";
+
+//font
+@mixin font-face($family, $font-weight, $font-style, $local-list:false, $file-folder: false) {
+    $file-name: $family;
+    $file-folder: if($file-folder, $file-folder, $family);
+    $file-name: $file-folder;
+    $file-path: '../fonts/#{$file-folder}/#{$file-name}';
+
+    @font-face {
+        font-family: $family;
+        @if($local-list){
+            @if(length($local-list) == 4){
+                src: local(quote(nth($local-list, 1))), local(quote(nth($local-list, 2))), local(quote(nth($local-list, 3))), local(quote(nth($local-list, 4)));
+            }
+            @else if(length($local-list) == 3){
+                src: local(quote(nth($local-list, 1))), local(quote(nth($local-list, 2))), local(quote(nth($local-list, 3)));
+            }
+            @else if(length($local-list) == 2){
+                src: local(quote(nth($local-list, 1))), local(quote(nth($local-list, 2)));
+            } @else if(length($local-list) == 1){
+                src: local(quote(nth($local-list, 1)));
+            }
+        }
+        src: url('#{$file-path}.woff2') format('woff2'),
+             url('#{$file-path}.woff') format('woff');
+        font-weight: $font-weight;
+        font-style: $font-style;
+    }
+}
+
+//clearfix
+@mixin clearfix() {
+    &:after {
+        display: table;
+        clear: both;
+        content: '';
+    }
+}
+
+//box-sizing
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+//for form
+$pseudo-phprefix: "::-webkit-input-placeholder" "::-moz-placeholder" ":-ms-input-placeholder" "::placeholder";
+
+@mixin placeholder {
+    @each $pseudo in $pseudo-phprefix {
+
+        @at-root #{&}#{$pseudo} {
+            @content
+        }
+    }
+}
+
+//make grid
+@mixin media($query-string){
+    @media #{$query-string} {
+        @content;
+    }
+}
+
+//make-grid
+@mixin grid-row-direction ($reverse:false) {
+    @if ($reverse) {
+        flex-direction: row-reverse;
+    } @else {
+        flex-direction: row;
+    }
+}
+
+@mixin container {
+    margin-right: auto;
+    margin-left: auto;
+    width: $max-width;
+
+    @include media($media-desktop-small) {
+        max-width: $max-width-desktop-small;
+    }
+
+    @include media($media-tablet) {
+        max-width: $max-width-tablet;
+    }
+
+    @include media($media-tablet-small) {
+        max-width: $max-width-tablet-small;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    @include media($media-phone) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@mixin grid-row ($reverse:false) {
+    if($reverse) {
+        @include grid-row-direction($reverse);
+    }
+    display: flex;
+}
+
+@mixin grid-row-wrap ($reverse:false) {
+    if($reverse) {
+        @include grid-row-direction($reverse);
+    }
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin column () {
+    padding-right: $half-gutter-width;
+    padding-left: $half-gutter-width;
+}
+
+@mixin column-gutter () {
+    margin-left: $half-gutter-width;
+    margin-right: $half-gutter-width;
+}
+
+@mixin grid-column-span ($columns-to-span:12, $total-columns-in-row:12) {
+    $span-percentage: $columns-to-span / $total-columns-in-row;
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    flex-basis: $span-percentage * 100%;
+}
+
+@mixin grid-column-offset ($columns-to-offset, $total-columns-in-row:12) {
+    margin-left: ($columns-to-offset / $total-columns-in-row) * 100%;
+}
+
+@mixin grid-column-order ($position) {
+    @if ($position == last) {
+        $position: 9999;
+    } @else if ($position == first) {
+        $position: -9999;
+    }
+
+    order: $position;
+}
+
+@mixin return-grid ($key) {
+    $str: "";
+
+    @if ($key == desktop) {
+        $str: ""
+    } @else {
+        $str: "_#{$key}"
+    }
+
+    .column#{$str} {
+        @include column;
+
+        @for $i from 1 through $columns {
+            &_#{$i} {
+                @include grid-column-span($i);
+            }
+
+            &_offset-#{$i} {
+                @include grid-column-offset($i);
+            }
+        }
+    }
+}
+

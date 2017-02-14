@@ -1,0 +1,12 @@
+mixin skills-list(data)
+    - data = data || {};
+
+    +b('ul').skills-list&attributes(attributes)
+        each circle in data
+            +e('li').__parametr
+                +e.__circle(data-percentage= circle.percentage)
+                    +e('svg')(viewBox='0 0 32 32').__slice
+                        +e('circle')(r='16' cx='16' cy='16').__fill
+                        +e('circle')(r='16' cx='16' cy='16').__bar
+                    +e.__percentage!=0
+                    +e.__caption!= circle.skill

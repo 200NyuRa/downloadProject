@@ -1,0 +1,34 @@
+mixin old-browser()
+    +b.old-browser-popup.js-browser-popup&attributes(attributes)
+        +e.bg.js-browser-popup-close
+        +e.wrapper
+            +e.content
+                +e.close.js-browser-popup-close ×
+                +e.header
+                    +e.H2.header-title Есть подозрение, что ваш <nobr>интернет-браузер</nobr> устарел
+                    +e.P.header-text
+                        | Наш сайт создан с&nbsp;использованием современных технологий&nbsp;&mdash; это делает его быстрым и&nbsp;удобным для пользования. Рекомендуем обновить браузер для оптимальной работы с&nbsp;сайтом, просто и&nbsp;безопасно.
+                +e.footer
+                    .columns
+                        .columns__col
+                            +e.A.item._chrome(href='https://www.google.com/intl/ru/chrome/browser/')
+                                +e.SPAN.title Chrome
+                                +e.SPAN.descr Версия 30+
+                            +e.A.item._firefox(href='http://www.mozilla.org/ru/firefox/new/')
+                                +e.SPAN.title Firefox
+                                +e.SPAN.descr Версия 24+
+                        .columns__col
+                            +e.A.item._opera(href='http://ru.opera.com/download/')
+                                +e.SPAN.title Opera
+                                +e.SPAN.descr Версия 12+
+                            +e.A.item._yandex(href='http://browser.yandex.com/?lang=ru')
+                                +e.SPAN.title Яндекс.Браузер
+                                +e.SPAN.descr Версия 1+
+                        .columns__col
+                            +e.A.item._safari(href='http://www.apple.com/ru/safari/')
+                                +e.SPAN.title Safari
+                                +e.SPAN.descr Версия 5.1+
+                            +e.A.item._explorer(href='http://windows.microsoft.com/ru-RU/internet-explorer/download-ie')
+                                +e.SPAN.title Internet Explorer
+                                +e.SPAN.descr Версия 10+
+

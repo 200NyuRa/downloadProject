@@ -1,0 +1,53 @@
+.field {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+
+    &__input {
+        display: inline-block;
+        width: 100%;
+        background-color: $white;
+        padding: 10px 15px;
+        font-weight: 400;
+        outline: 0;
+        @extend %text_s;
+        line-height: 1;
+        text-transform: uppercase;
+        border: solid 1px $gray-darker;
+        color: $black-magic;
+        transition: all .3s ease-in-out;
+
+        @include placeholder {
+            color: rgba($black-magic, .5);
+        }
+
+        &:hover {
+            border-color: $gray-darker * .9;
+        }
+
+        &:focus {
+            border-color: $gray-darkest;
+            color: $black-magic;
+
+            @include placeholder {
+                color: transparent;
+            }
+        }
+
+        &_textarea {
+            min-height: 150px;
+            padding: 15px;
+            resize: none;
+        }
+
+        &_error,
+        &_error:focus,
+        &_error:hover {
+            border-color: $red-dark;
+            color: $red-dark;
+        }
+    }
+}
+
+
+

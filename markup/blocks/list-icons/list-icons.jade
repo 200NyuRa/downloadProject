@@ -1,0 +1,14 @@
+imclude ../svg/svg
+
+mixin list-icons(data)
+    - data = data || {};
+
+    +b('ul').list-icons&attributes(attributes)
+        each item in data
+            +e('li').__item
+                if item.svg
+                    +svg(item.iconName).__icon
+
+                if item.iconFontName
+                    +b('i')(class= item.iconFontName).__icon
+                +e('span').__text!= item.text

@@ -1,0 +1,17 @@
+include ../svg/svg
+
+mixin social(data)
+    - data = data || {};
+    - links = data.links || {};
+
+    +b.social&attributes(attributes)
+
+        each link in links
+            +e('a')(href= link.href).__link
+                != link.text
+
+                if link.svg
+                    +svg(link.iconName).__icon
+
+                if link.iconFontName
+                    +b('i')(class= link.iconFontName).__icon

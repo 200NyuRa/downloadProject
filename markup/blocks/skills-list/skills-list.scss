@@ -1,0 +1,94 @@
+.skills-list {
+    @extend %flex-content;
+    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(20px);
+    margin-top: -10px;
+    transition: opacity 2.1s ease .4s, transform 2.1s ease .4s;
+
+    @include media($media-tablet) {
+        flex-wrap: wrap;
+    }
+
+    &.on-scroll {
+        transform: translateY(0);
+        opacity: 1;
+        transition-duration: .4s;
+    }
+
+    &__parametr {
+        @extend .column_3;
+        @extend .column_tablet_6;
+        @extend .column_tablet-smaller_12;
+        @extend %column-padding;
+        display: flex;
+        justify-content: center;
+
+        &:nth-child(-n + 2) {
+            @include media($media-tablet) {
+                margin-bottom: 20px;
+            }
+        }
+
+        @include media($media-tablet-smaller) {
+            margin-bottom: 20px;
+        }
+
+        &:last-child {
+            @include media($media-tablet-small) {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+    &__circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 200px;
+        height: 200px;
+        position: relative;
+
+        @include media($media-desktop-small) {
+            width: 180px;
+            height: 180px;
+        }
+    }
+
+    &__slice {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotate(-90deg);
+        border-radius: 50%;
+    }
+
+    &__bar {
+        fill: transparent;
+        stroke: $red;
+        stroke-width: 5px;
+        stroke-dasharray: 0 100;
+        transition: stroke-dasharray 1s linear;
+    }
+
+    &__fill {
+        stroke-width: 5px;
+        fill: transparent;
+        stroke: $gray-darker;
+        position: absolute;
+        top: 0;
+    }
+
+    &__percentage {
+        @extend %title;
+        @extend %text-title_m;
+        margin-bottom: 10px;
+    }
+
+    &__caption {
+        text-transform: uppercase;
+        @extend %text-title_s;
+    }
+}

@@ -1,0 +1,26 @@
+include ../list-icons/list-icons
+include ../title/title
+
+mixin contacts(data)
+    +b.contacts&attributes(attributes)
+        +title({
+            tag: 'h3',
+            title: 'Contact details'
+        })._s
+        +list-icons([
+            {
+            iconFontName: 'icon-location',
+            text: 'Stret / House / Zip'
+            },
+            {
+                iconFontName: 'icon-phone',
+                text: '111-111-1111'
+            },
+            {
+                iconFontName: 'icon-mail-alt',
+                text: 'email@1.com'
+            }
+        ]).__list
+
+        +e('p').__text
+            |Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut&nbsp;laoreet dolore magna aliquam erat volutpat. Ut&nbsp;wisi enim ad&nbsp;minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut&nbsp;aliquip ex&nbsp;ea&nbsp;commodo consequat.

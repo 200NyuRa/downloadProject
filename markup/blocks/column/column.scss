@@ -1,0 +1,12 @@
+@each $key, $breakpoint in $breakpoints {
+    @if ($key == desktop) {
+
+        @include return-grid($key);
+
+    } @else {
+
+        @include media($breakpoint) {
+            @include return-grid($key);
+        }
+    }
+}

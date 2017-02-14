@@ -1,0 +1,11 @@
+mixin column(width, offset)
+    - var columnClass = 'column';
+
+    if width && !offset
+        +b(class= 'column_#{width}')&attributes(attributes)
+            - if (bemto_chain[bemto_chain.length - 1][0] === columnClass) {bemto_chain_contexts.pop();bemto_chain.pop();}
+            block
+    else if width && offset
+        +b(class= 'column_#{width} column_offset - #{offset}')&attributes(attributes)
+            - if (bemto_chain[bemto_chain.length - 1][0] === columnClass) {bemto_chain_contexts.pop();bemto_chain.pop();}
+            block

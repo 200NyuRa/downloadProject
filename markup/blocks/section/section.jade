@@ -1,0 +1,21 @@
+include ../heading/heading
+
+mixin section(data)
+    -data = data || {};
+
+    +b.section&attributes(attributes)
+        +e.__container
+            if data.title && data.subtitle
+                +heading({
+                    subtitleMod: '__part',
+                    titleMod: '__part',
+                    title: data.title,
+                    titleTag: 'h2',
+                    subtitle: data.subtitle
+                }).__heading.js-animation-wrap
+
+                if data.content
+                    +e.__content(class= data.cotentMod)
+                        block
+                else
+                    block

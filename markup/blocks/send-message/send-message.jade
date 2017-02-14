@@ -1,0 +1,39 @@
+include ../title/title
+include ../form/form
+include ../btn/btn
+include ../column/column
+
+mixin send-message(data)
+    +b.send-message&attributes(attributes)
+        +title({
+            tag: 'h2',
+            title: 'send&nbsp;us a&nbsp;message'
+        })._s
+        +e('form')(action='' method='post').__form
+            +e.__row
+                +e.__col
+                    +field({
+                        type: 'text',
+                        name: 'name',
+                        placeholder: 'name'
+                    })
+                +e.__col
+                    +field({
+                        type: 'email',
+                        name: 'email',
+                        placeholder: 'e-mail'
+                    })
+
+            +e.__row
+                +field({
+                    type: 'textarea',
+                    name: 'Subject',
+                    placeholder: 'Subject'
+                })
+
+            +e.__btn
+                +btn({
+                    tag: 'button',
+                    type: 'submit',
+                    text: 'Send'
+                })._red

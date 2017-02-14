@@ -1,0 +1,99 @@
+include ./../../node_modules/bemto.jade/bemto
+extends ../blocks/layout-default/layout-default
+include ../blocks/download-project/download-project
+include ../blocks/section/section
+include ../blocks/section-img/section-img
+include ../blocks/skills-list/skills-list
+include ../blocks/team-list/team-list
+include ../blocks/contacts/contacts
+include ../blocks/send-message/send-message
+include ../blocks/column/column
+
+block head
+    - pageTitle = '';
+    - pageDescription = '';
+    - pageContainerNot = true;
+    - symbols = true;
+
+block content
+    +download-project({
+        img: './static/img/content/bg-download-project.jpg',
+        href: './static/img/content/resume.docx',
+        download: 'Резюме Карякиной Анны',
+        title: '<span class="download-project__first-word">Test</span> project',
+        link: 'Download'
+    })
+    +section({
+        title: 'About\u00A0us',
+        subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet<br/>dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut<br/> aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit.'
+    })._gray
+
+    +section-img({
+        img: './static/img/content/img-our-history.jpg',
+        title: 'Our History',
+        paragraphs: [
+                'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut\u00A0laoreet dolore magna aliquam erat volutpat. Ut\u00A0wisi enim ad\u00A0minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut\u00A0aliquip ex\u00A0ea\u00A0commodo consequat. Duis autem vel eum iriure dolor in\u00A0hendrerit in\u00A0vulputate velit esse molestie consequat, vel illum dolore eu\u00A0feugiat nulla facilisis at\u00A0vero eros et\u00A0accumsan et\u00A0iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te\u00A0feugait nulla facilisi.',
+                'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut\u00A0laoreet dolore magna aliquam erat volutpat. Ut\u00A0wisi enim ad\u00A0minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut\u00A0aliquip ex\u00A0ea\u00A0commodo consequat.'
+        ]
+    }).js-animation-wrap
+
+    +section({
+        title: 'Our skills',
+        subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet<br/>dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.'
+    })._gray
+        +skills-list([{
+                percentage: '75%',
+                skill: 'Html'
+            },
+            {
+                percentage: '80%',
+                skill: 'Css'
+            },
+            {
+                percentage: '70%',
+                skill: 'Wordpress'
+            },
+            {
+                percentage: '85%',
+                skill: 'Seo'
+            }
+        ]).js-animation-wrap
+
+    +section({
+        title: 'Our team',
+        subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet<br/>dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.'
+    })._white
+        +team-list([
+            {
+                photo: './static/img/content/team-list-photo_1.jpg',
+                name: 'User\u2009#1',
+                position: 'Seo',
+                hrefFacebook: '#',
+                hrefTwitter: '#'
+            },
+            {
+                photo: './static/img/content/team-list-photo_2.jpg',
+                name: 'User\u2009#2',
+                position: 'Marketing head',
+                hrefFacebook: '#',
+                hrefTwitter: '#'
+            },
+            {
+                photo: './static/img/content/team-list-photo_3.jpg',
+                name: 'User\u2009#3',
+                position: 'Project head',
+                hrefFacebook: '#',
+                hrefTwitter: '#'
+            }
+        ])
+
+    +section({
+        content: true,
+        cotentMod: 'js-animation-wrap',
+        title: 'Contact\u00A0us',
+        subtitle: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet<br/>dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.'
+    })._gray
+        +column(6)._tablet-small_10._tablet-smaller_12.__contacts
+            +contacts()
+        +column(6)._tablet-small_10._tablet-smaller_12
+            +send-message()

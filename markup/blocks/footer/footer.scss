@@ -1,0 +1,18 @@
+.footer {
+    padding: 20px 0;
+    background-color: $white;
+
+    &__container {
+        @extend %container;
+    }
+
+    &__content {
+        @extend %flex-content-wrap;
+        flex-wrap: wrap;
+    }
+
+    &__right {
+        margin-left: auto;
+        @extend %column-padding;
+    }
+}

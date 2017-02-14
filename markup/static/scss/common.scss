@@ -1,0 +1,126 @@
+body {
+    font-family: "OpenSans", "Helvetica", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background-color: $white;
+    color: $gray-darkest;
+    @extend %text;
+    min-width: 320px;
+    position: relative;
+}
+
+//typography
+%text {
+    font-size: 16px;
+    line-height: 1.88;
+
+    @include media($media-desktop-small) {
+        font-size: 14px;
+    }
+
+    @include media($media-desktop-small) {
+        font-size: 12px;
+    }
+}
+
+%text_s {
+    font-size: 14px;
+    line-height: 1.88;
+}
+
+
+%text-title_m {
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+%text-title {
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+%text-title_s {
+    font-size: 20px;
+    line-height: 1.05px;
+}
+
+%title {
+    font-weight: 700;
+    color: $black-magic;
+    text-transform: uppercase;
+}
+
+//reset styles
+a {
+    text-decoration: none;
+    color: $black-magic;
+}
+
+b {
+    color: $black-magic;
+    font-weight: 700;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+form {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
+
+    @include media($media-tablet-small) {
+        margin-bottom: 15px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+
+}
+
+%container {
+    @include container;
+}
+
+%flex-content {
+    @include grid-row;
+}
+
+%flex-content-wrap {
+    @include grid-row-wrap;
+}
+
+%column-gutter {
+    @include column-gutter;
+}
+
+%column-padding {
+    @include column;
+}
+
+
+
+
+

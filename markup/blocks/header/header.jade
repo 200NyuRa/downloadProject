@@ -1,0 +1,25 @@
+include ../social/social
+
+mixin header(data)
+    - data = data || {};
+
+    +b('header').header
+        +e.__container
+            +e.__content
+                +social({
+                    links: [{
+                        href: '#',
+                        text: 'facebook',
+                        iconFontName: ['icon-facebook', 'social__icon_white']
+                    },
+                    {
+                        href: '#',
+                        text: 'twitter',
+                        iconFontName: ['icon-twitter', 'social__icon_white']
+                    },
+                    {
+                        href: '#',
+                        text: 'google-plus',
+                        iconFontName: ['icon-gplus', 'social__icon_white']
+                    }]
+                }).__right

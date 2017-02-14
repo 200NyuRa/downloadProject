@@ -1,0 +1,28 @@
+include ../heading/heading
+include ../column/column
+
+mixin section-img(data)
+    -data = data || {};
+    -paragraphs = data.paragraphs || {};
+
+    +b.section-img&attributes(attributes)
+        +e.__container
+            +e.__content
+                +e.__media
+                    +e.__image(
+                        style= 'background-image:url(#{data.img})'
+                        height= 600
+                        width= 573
+                    )
+                +e.__content-box
+                    if data.title || data.subtitle
+                        +heading({
+                            title: data.title,
+                            titleTag: 'h2',
+                            subtitle: data.subtitle
+                        })._left
+
+                    each text in paragraphs
+                        +e('p').__text!= text
+
+                    block

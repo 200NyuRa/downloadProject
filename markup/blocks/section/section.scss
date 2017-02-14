@@ -1,0 +1,53 @@
+.section {
+    padding: 55px 0 55px;
+
+    @include media($media-tablet) {
+        padding: 45px 0 40px;
+    }
+
+    &_wite {
+        background-color: $white;
+    }
+
+    &_gray {
+        background-color: $gray;
+    }
+
+    &__container {
+        @extend %container;
+    }
+
+    &__heading {
+        @extend %column-padding;
+    }
+
+    &__content {
+        @extend %flex-content;
+        justify-content: space-between;
+
+        @include media($media-tablet) {
+            flex-wrap: wrap;
+        }
+
+        &.js-animation-wrap {
+            opacity: 0;
+            transition: opacity 1.6s ease .4s;
+
+            &.on-scroll {
+                opacity: 1;
+            }
+        }
+
+        &.on-scroll {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    &__contacts {
+        @include media($media-tablet-small) {
+            padding-top: 15px;
+            margin-bottom: 45px;
+        }
+    }
+}

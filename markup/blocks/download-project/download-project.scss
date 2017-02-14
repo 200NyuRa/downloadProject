@@ -1,0 +1,57 @@
+.download-project {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    &__substrate {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+        animation: anim-scale 40s ease-out both;
+    }
+
+    &__container {
+        @extend %container;
+        height: 100%;
+    }
+
+    &__content {
+        padding-top: 7.5%;
+        @extend %flex-content-wrap;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title {
+        font-family: "MyriadPro", "Helvetica", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: $white;
+        margin-bottom: 50px;
+        @extend %text-title_m;
+        text-transform: uppercase;
+    }
+
+    &__first-word {
+        color: $red;
+    }
+}
+
+@keyframes anim-scale{
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}

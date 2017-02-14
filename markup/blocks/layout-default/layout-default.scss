@@ -1,0 +1,7 @@
+$pageSelector: '.page';
+
+#{$pageSelector} {
+    &__wrapper {
+        overflow: hidden;
+    }
+}

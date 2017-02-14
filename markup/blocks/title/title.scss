@@ -1,0 +1,18 @@
+$titleSelector: '.title';
+
+#{$titleSelector} {
+    @extend %title;
+    margin-bottom: 40px;
+
+    @include media($media-tablet) {
+        margin-bottom: 35px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &_s {
+        @extend %text-title_s
+    }
+}

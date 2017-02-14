@@ -1,0 +1,26 @@
+.list-icons {
+
+    &__item {
+        display: block;
+    }
+
+    &__item + &__item {
+        margin-top: 15px;
+    }
+
+    &__icon,
+    &__text {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__icon {
+        &:before {
+            font-size: 24px;
+            line-height: 1.25;
+            color: $red;
+            margin-left: 0;
+            margin-right: 10px;
+        }
+    }
+}

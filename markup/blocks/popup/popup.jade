@@ -1,0 +1,16 @@
+//mixin popup-form()
+//    +b.popup#popup-form.white-popup.mfp-hide
+//        +form-order({
+//            nameId: 'name1ID',
+//            phoneId: 'phone1ID',
+//            formMode: 'popup'
+//        })
+
+mixin popup-thanks()
+    +b.popup._thanks#thanks.white-popup.mfp-hide
+        +e('h3') Спасибо!
+        +e('p') Ваш заказ принят
+
+mixin popup-erorr()
+    +b.popup._erorr#erorr.white-popup.mfp-hide
+        +e('p') Ошибка&nbsp;отправки сообщения.

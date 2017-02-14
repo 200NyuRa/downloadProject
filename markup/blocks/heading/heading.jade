@@ -1,0 +1,16 @@
+mixin heading(data)
+    - data = data || {};
+
+    +b.heading&attributes(attributes)
+        +e(data.titleTag ? data.titleTag : 'h2')(class = data.titleMod).__title!= data.title
+            if data.titleParts
+                each titlePart in titleParts
+                    +e('span').__title-part!= titlePart
+
+        if data.subtitle
+            +e('div')(class = data.subtitleMod).__subtitle!= data.subtitle
+            if data.subtitleParts
+                each subtitlePart in titleParts
+                    +e('span').__title-part!= subtitlePart
+
+        block

@@ -1,0 +1,15 @@
+include ../btn/btn
+
+mixin download-project(data)
+    -data = data || {};
+
+    +b.download-project
+        +e.__container
+            +e.__content
+                +e.__substrate(style='background-image: url(#{data.img})')
+                +e('h1').__title!= data.title
+                +btn({
+                    tag: 'a',
+                    href: data.href,
+                    text: data.link
+                })(download = data.download)._transparent.__btn
